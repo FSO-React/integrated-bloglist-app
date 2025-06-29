@@ -11,6 +11,13 @@ on:
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-latest
+    env:
+      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      PORT: ${{ secrets.PORT }}
+      SECRET: ${{ secrets.SECRET }}
+      NODE_ENV: test
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
